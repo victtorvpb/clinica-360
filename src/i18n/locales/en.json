@@ -18,7 +18,11 @@
     "previous": "Previous",
     "loading": "Loading...",
     "noData": "No data available",
-    "language": "Language"
+    "language": "Language",
+    "user": "User",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
   },
   "dashboard": {
     "title": "Dashboard",
