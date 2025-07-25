@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Outlet } from "react-router-dom";
 import {
   Home,
   Users,
@@ -10,21 +9,18 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import { ROUTES } from "../router/routes";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-export function Layout({ children }: LayoutProps) {
+export function Layout() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
-    { path: "/", icon: Home, label: "Dashboard" },
-    { path: "/pacientes", icon: Users, label: "Pacientes" },
-    { path: "/agendamentos", icon: Calendar, label: "Agendamentos" },
-    { path: "/medicos", icon: Stethoscope, label: "Médicos" },
-    { path: "/consultas", icon: FileText, label: "Consultas" },
+    { path: ROUTES.DASHBOARD, icon: Home, label: "Dashboard" },
+    { path: ROUTES.PACIENTES, icon: Users, label: "Pacientes" },
+    { path: ROUTES.AGENDAMENTOS, icon: Calendar, label: "Agendamentos" },
+    { path: ROUTES.MEDICOS, icon: Stethoscope, label: "Médicos" },
+    { path: ROUTES.CONSULTAS, icon: FileText, label: "Consultas" },
   ];
 
   return (
@@ -107,7 +103,9 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">{children}</div>
+        <div className="px-4 py-6 sm:px-0">
+          <Outlet />
+        </div>
       </main>
     </div>
   );
