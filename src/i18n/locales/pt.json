@@ -18,7 +18,11 @@
     "previous": "Anterior",
     "loading": "Carregando...",
     "noData": "Nenhum dado disponível",
-    "language": "Idioma"
+    "language": "Idioma",
+    "user": "Usuário",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "logout": "Sair"
   },
   "dashboard": {
     "title": "Dashboard",

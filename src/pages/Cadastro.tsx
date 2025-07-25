@@ -304,11 +304,9 @@ export function Cadastro() {
                 <span className="text-white font-bold text-sm">C</span>
               </div>
               <span className="text-xl font-semibold text-gray-700">
-                clinica
+                Clinica
               </span>
-              <span className="text-xl font-bold text-primary-600">
-                experts
-              </span>
+              <span className="text-xl font-bold text-primary-600">360</span>
             </div>
 
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
