@@ -10,6 +10,7 @@ A complete management system for medical clinics developed with React, TypeScrip
 - **Medical Team**: Management of doctors and specialties
 - **Consultations**: Registration and history of consultations performed
 - **Responsive Interface**: Works perfectly on desktop and mobile
+- **🌍 Internationalization**: Full support for Portuguese and English with auto-detection
 
 ## 🛠️ Technologies Used
 
@@ -20,6 +21,9 @@ A complete management system for medical clinics developed with React, TypeScrip
 - **React Router**: Navigation between pages
 - **Lucide React**: Modern and beautiful icons
 - **Date-fns**: Date manipulation
+- **i18next**: Internationalization framework
+- **react-i18next**: React integration for i18n
+- **Language Detection**: Auto-detect browser language
 
 ## 📦 Installation
 
@@ -101,6 +105,15 @@ The application is fully responsive and works well on:
 - `npm run build`: Generates production build
 - `npm run preview`: Previews the build locally
 - `npm run lint`: Runs the linter
+
+## 📚 Documentation
+
+For detailed documentation, visit the **[docs/](./docs/)** folder:
+
+- **[Setup Guide](./docs/SETUP-I18N.md)** - Quick setup for internationalization
+- **[Deploy Guide](./docs/DEPLOY.md)** - Deploy with GitHub Actions + Vercel  
+- **[Routing System](./docs/ROUTER.md)** - Advanced routing documentation
+- **[Internationalization](./docs/I18N.md)** - Complete i18n guide
 
 ## 🚧 Upcoming Features
 

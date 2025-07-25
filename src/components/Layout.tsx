@@ -45,10 +45,6 @@ export function Layout() {
                   Clinic 360
                 </h1>
               </div>
-
-              <div className="flex items-center space-x-4">
-                <LanguageSelector />
-              </div>
             </div>
 
             <nav className="hidden md:flex space-x-8">
@@ -71,17 +67,21 @@ export function Layout() {
               })}
             </nav>
 
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
+            <div className="flex items-center space-x-4">
+              <LanguageSelector />
+
+              <div className="md:hidden">
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+                >
+                  {isMobileMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>

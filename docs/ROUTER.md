@@ -7,6 +7,7 @@ The routing system has been completely refactored to be more robust, scalable, a
 ## 🏗️ Architecture
 
 ### **File Structure:**
+
 ```
 src/
   router/
@@ -24,21 +25,25 @@ src/
 ## 🎯 Main Advantages
 
 ### ✅ **Lazy Loading**
+
 - Pages loaded only when needed
 - Better initial performance
 - Automatic loading between pages
 
 ### ✅ **Type Safety**
+
 - Typed constants for all routes
 - Compile-time validation
 - IDE autocompletion
 
 ### ✅ **Centralization**
+
 - All routes in one place
 - Easy maintenance
 - Guaranteed consistency
 
 ### ✅ **Error Handling**
+
 - Custom 404 page
 - Error handling per page
 - Automatic recovery
@@ -143,6 +148,7 @@ The system is ready to add route protection:
 ## 🔄 Adding New Routes
 
 ### **1. Add to constants:**
+
 ```typescript
 // src/router/routes.ts
 export const ROUTES = {
@@ -152,6 +158,7 @@ export const ROUTES = {
 ```
 
 ### **2. Add to router:**
+
 ```tsx
 // src/router/router.tsx
 {
@@ -165,6 +172,7 @@ export const ROUTES = {
 ```
 
 ### **3. Add shortcut (optional):**
+
 ```tsx
 // src/hooks/useNavigation.ts
 return {
@@ -178,6 +186,7 @@ return {
 ## 🚀 Performance
 
 ### **Lazy Loading Implemented:**
+
 - ✅ Dashboard
 - ✅ Patients  
 - ✅ Appointments
@@ -186,6 +195,7 @@ return {
 - ✅ Register
 
 ### **Loading States:**
+
 - Automatic spinner during loading
 - Custom fallback for each page
 - Smooth transitions
@@ -203,6 +213,7 @@ npm run dev
 ```
 
 **URLs to test:**
+
 - `http://localhost:5173/` → Redirects to dashboard
 - `http://localhost:5173/dashboard` → Dashboard
 - `http://localhost:5173/register` → Register (no layout)
@@ -216,4 +227,4 @@ npm run dev
 1. **Always use constants** instead of hardcoded strings
 2. **Use the custom hook** for programmatic navigation
 3. **Test lazy loading** in production to ensure performance
-4. **Add new routes** following the established pattern 
+4. **Add new routes** following the established pattern

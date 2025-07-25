@@ -6,11 +6,11 @@ import enTranslations from './locales/en.json';
 import ptTranslations from './locales/pt.json';
 
 const resources = {
-  en: {
-    translation: enTranslations
-  },
   pt: {
     translation: ptTranslations
+  },
+  en: {
+    translation: enTranslations
   }
 };
 
@@ -19,7 +19,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: 'pt',
     debug: false,
     
     interpolation: {
