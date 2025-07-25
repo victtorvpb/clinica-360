@@ -25,7 +25,6 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -37,7 +36,6 @@ export function Layout() {
               </div>
             </div>
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               {menuItems.map((item) => {
                 const Icon = item.icon;
@@ -58,7 +56,6 @@ export function Layout() {
               })}
             </nav>
 
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -74,7 +71,6 @@ export function Layout() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
@@ -101,7 +97,6 @@ export function Layout() {
         )}
       </header>
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <Outlet />

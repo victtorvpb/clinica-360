@@ -118,7 +118,6 @@ export function Agendamentos() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Agendamentos</h1>
@@ -130,7 +129,6 @@ export function Agendamentos() {
         </button>
       </div>
 
-      {/* Filters */}
       <div className="card">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
@@ -185,7 +183,6 @@ export function Agendamentos() {
         </div>
       </div>
 
-      {/* Appointments Timeline */}
       <div className="card">
         <h3 className="text-lg font-medium text-gray-900 mb-6">
           Agendamentos para{" "}

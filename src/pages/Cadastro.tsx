@@ -76,7 +76,6 @@ export function Cadastro() {
       case 1:
         return (
           <div className="space-y-6">
-            {/* Nome da clínica */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Nome da sua clínica
@@ -92,7 +91,6 @@ export function Cadastro() {
               />
             </div>
 
-            {/* Quantas pessoas trabalham */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Quantas pessoas trabalham na sua clínica?
@@ -113,7 +111,6 @@ export function Cadastro() {
               </select>
             </div>
 
-            {/* Área de atuação */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Qual sua área de atuação?
@@ -136,7 +133,6 @@ export function Cadastro() {
               </select>
             </div>
 
-            {/* Especialização (condicional) */}
             {formData.area === "estetica" && (
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -164,7 +160,6 @@ export function Cadastro() {
       case 2:
         return (
           <div className="space-y-6">
-            {/* Nome */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Seu nome
@@ -180,7 +175,6 @@ export function Cadastro() {
               />
             </div>
 
-            {/* Celular */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Celular
@@ -202,7 +196,6 @@ export function Cadastro() {
               </div>
             </div>
 
-            {/* Email */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Seu e-mail
@@ -218,7 +211,6 @@ export function Cadastro() {
               />
             </div>
 
-            {/* Termos */}
             <div className="flex items-start">
               <input
                 type="checkbox"
@@ -239,7 +231,6 @@ export function Cadastro() {
       case 3:
         return (
           <div>
-            {/* Senha */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Defina uma senha
@@ -276,16 +267,13 @@ export function Cadastro() {
 
   return (
     <div className="min-h-screen flex">
-      {/* Lado esquerdo - Imagem e background */}
       <div className="hidden lg:flex lg:w-1/2 bg-white relative overflow-hidden shadow-2xl">
-        {/* Formas geométricas decorativas */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500 rounded-full opacity-80 translate-x-1/3 -translate-y-1/3"></div>
           <div className="absolute bottom-20 right-10 w-60 h-60 bg-purple-400 rounded-full opacity-70"></div>
           <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-purple-600 rounded-full opacity-60"></div>
         </div>
 
-        {/* Imagem da mulher trabalhando */}
         <div className="relative z-10 w-full h-full group cursor-pointer">
           <img
             src={mulherCadastro}
@@ -293,10 +281,8 @@ export function Cadastro() {
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 shadow-2xl"
           />
 
-          {/* Overlay escuro */}
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-          {/* Overlay com texto */}
           <div className="absolute bottom-32 left-8 right-8 transform translate-y-0 group-hover:-translate-y-4 transition-transform duration-500">
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
               <h2 className="text-2xl font-bold mb-2 text-gray-800">
@@ -310,10 +296,8 @@ export function Cadastro() {
         </div>
       </div>
 
-      {/* Lado direito - Formulário */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white">
         <div className="w-full max-w-md">
-          {/* Logo e cabeçalho */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center mr-2">
@@ -333,7 +317,6 @@ export function Cadastro() {
             <p className="text-gray-600">{getStepSubtitle()}</p>
           </div>
 
-          {/* Indicador de progresso */}
           <div className="flex items-center justify-center mb-8">
             <div className="flex space-x-2">
               {[1, 2, 3].map((step) => (
@@ -351,14 +334,10 @@ export function Cadastro() {
             </div>
           </div>
 
-          {/* Formulário */}
           <form onSubmit={handleNextStep} className="space-y-6">
-            {/* Conteúdo dinâmico baseado no step */}
             {renderStepContent()}
 
-            {/* Navegação entre steps */}
             <div className="space-y-4">
-              {/* Botões de navegação */}
               <div className="flex gap-3">
                 {currentStep > 1 && (
                   <button
@@ -381,7 +360,6 @@ export function Cadastro() {
                 </button>
               </div>
 
-              {/* Link para login - apenas no último step */}
               {currentStep === totalSteps && (
                 <div className="text-center">
                   <p className="text-sm text-gray-600">

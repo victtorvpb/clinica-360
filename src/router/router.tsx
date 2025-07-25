@@ -3,7 +3,6 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { ROUTES } from "./routes";
 
-// Lazy loading pages for better performance
 const Dashboard = lazy(() =>
   import("../pages/Dashboard").then((module) => ({ default: module.Dashboard }))
 );
@@ -25,19 +24,15 @@ const Cadastro = lazy(() =>
   import("../pages/Cadastro").then((module) => ({ default: module.Cadastro }))
 );
 
-// Loading component
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
   </div>
 );
 
-// Wrapper for pages with Suspense
 const PageWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<PageLoader />}>{children}</Suspense>
 );
-
-// Route configuration
 export const router = createBrowserRouter([
   {
     path: ROUTES.HOME,

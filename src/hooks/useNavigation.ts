@@ -25,7 +25,6 @@ export const useNavigation = () => {
     goToPath,
     goBack,
     goForward,
-    // Shortcuts for most used routes
     goToDashboard: () => goTo("DASHBOARD"),
     goToRegister: () => goTo("REGISTER"),
     goToPatients: () => goTo("PATIENTS"),

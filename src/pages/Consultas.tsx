@@ -101,7 +101,6 @@ export function Consultas() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Consultas</h1>
@@ -113,7 +112,6 @@ export function Consultas() {
         </button>
       </div>
 
-      {/* Filters */}
       <div className="card">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
@@ -139,7 +137,6 @@ export function Consultas() {
         </div>
       </div>
 
-      {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="card">
           <div className="flex items-center">
@@ -190,7 +187,6 @@ export function Consultas() {
         </div>
       </div>
 
-      {/* Consultations List */}
       <div className="space-y-4">
         {filteredConsultas.map((consulta) => {
           const paciente = getPacienteNome(consulta.pacienteId);
