@@ -1,79 +1,79 @@
-# 🚀 Sistema de Rotas - Clínica 360
+# 🚀 Routing System - Clinic 360
 
-## 📋 Visão Geral
+## 📋 Overview
 
-O sistema de rotas foi completamente refatorado para ser mais robusto, escalável e fácil de manter.
+The routing system has been completely refactored to be more robust, scalable, and easy to maintain.
 
-## 🏗️ Arquitetura
+## 🏗️ Architecture
 
-### **Estrutura de Arquivos:**
+### **File Structure:**
 ```
 src/
   router/
-    ├── index.tsx          # Configuração principal das rotas
-    └── routes.ts          # Constantes das rotas
+    ├── index.tsx          # Main route configuration
+    └── routes.ts          # Route constants
   hooks/
-    └── useNavigation.ts   # Hook customizado para navegação
+    └── useNavigation.ts   # Custom navigation hook
   components/
-    ├── Layout.tsx         # Layout com Outlet para rotas aninhadas
-    └── ErrorBoundary.tsx  # Tratamento de erros
+    ├── Layout.tsx         # Layout with Outlet for nested routes
+    └── ErrorBoundary.tsx  # Error handling
 ```
 
 ---
 
-## 🎯 Principais Vantagens
+## 🎯 Main Advantages
 
 ### ✅ **Lazy Loading**
-- Páginas carregadas apenas quando necessário
-- Melhor performance inicial
-- Loading automático entre páginas
+- Pages loaded only when needed
+- Better initial performance
+- Automatic loading between pages
 
 ### ✅ **Type Safety**
-- Constantes tipadas para todas as rotas
-- Validação em tempo de compilação
-- Autocompletar nas IDEs
+- Typed constants for all routes
+- Compile-time validation
+- IDE autocompletion
 
-### ✅ **Centralização**
-- Todas as rotas em um local
-- Fácil manutenção
-- Consistência garantida
+### ✅ **Centralization**
+- All routes in one place
+- Easy maintenance
+- Guaranteed consistency
 
 ### ✅ **Error Handling**
-- Página 404 customizada
-- Tratamento de erros por página
-- Recuperação automática
+- Custom 404 page
+- Error handling per page
+- Automatic recovery
 
 ---
 
-## 🔧 Como Usar
+## 🔧 How to Use
 
-### **1. Navegação com Hook Customizado**
+### **1. Navigation with Custom Hook**
 
 ```tsx
 import { useNavigation } from "../hooks/useNavigation";
 
-function MeuComponente() {
+function MyComponent() {
   const nav = useNavigation();
   
   return (
     <div>
-      {/* Usando atalhos */}
+      {/* Using shortcuts */}
       <button onClick={nav.goToDashboard}>Dashboard</button>
-      <button onClick={nav.goToPacientes}>Pacientes</button>
+      <button onClick={nav.goToPatients}>Patients</button>
       
-      {/* Usando constantes */}
-      <button onClick={() => nav.goTo("AGENDAMENTOS")}>
-        Agendamentos
+      {/* Using constants */}
+      <button onClick={() => nav.goTo("APPOINTMENTS")}>
+        Appointments
       </button>
       
-      {/* Navegação programática */}
-      <button onClick={nav.goBack}>Voltar</button>
+      {/* Programmatic navigation */}
+      <button onClick={nav.goBack}>Back</button>
     </div>
   );
 }
 ```
 
-### **2. Links com Constantes**
+### **2. Links with Constants**
 
 ```tsx
 import { Link } from "react-router-dom";
@@ -83,51 +83,51 @@ function Menu() {
   return (
     <nav>
       <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
-      <Link to={ROUTES.PACIENTES}>Pacientes</Link>
-      <Link to={ROUTES.CONSULTAS}>Consultas</Link>
+      <Link to={ROUTES.PATIENTS}>Patients</Link>
+      <Link to={ROUTES.CONSULTATIONS}>Consultations</Link>
     </nav>
   );
 }
 ```
 
-### **3. Validação de Rotas**
+### **3. Route Validation**
 
 ```tsx
 import { isValidRoute } from "../router/routes";
 
-function verificarRota(path: string) {
+function checkRoute(path: string) {
   if (isValidRoute(path)) {
-    console.log("Rota válida:", path);
+    console.log("Valid route:", path);
   } else {
-    console.log("Rota inválida:", path);
+    console.log("Invalid route:", path);
   }
 }
 ```
 
 ---
 
-## 📝 Constantes de Rotas
+## 📝 Route Constants
 
 ```typescript
 export const ROUTES = {
   HOME: "/",
   DASHBOARD: "/dashboard",
-  CADASTRO: "/cadastro", 
-  PACIENTES: "/pacientes",
-  AGENDAMENTOS: "/agendamentos",
-  MEDICOS: "/medicos",
-  CONSULTAS: "/consultas",
+  REGISTER: "/register", 
+  PATIENTS: "/patients",
+  APPOINTMENTS: "/appointments",
+  DOCTORS: "/doctors",
+  CONSULTATIONS: "/consultations",
 } as const;
 ```
 
 ---
 
-## 🛡️ Proteção de Rotas (Futuro)
+## 🛡️ Route Protection (Future)
 
-O sistema está preparado para adicionar proteção de rotas:
+The system is ready to add route protection:
 
 ```tsx
-// Exemplo futuro de rota protegida
+// Future example of protected route
 {
   path: "admin",
   element: (
@@ -140,36 +140,36 @@ O sistema está preparado para adicionar proteção de rotas:
 
 ---
 
-## 🔄 Adicionando Novas Rotas
+## 🔄 Adding New Routes
 
-### **1. Adicionar na constante:**
+### **1. Add to constants:**
 ```typescript
 // src/router/routes.ts
 export const ROUTES = {
-  // ... rotas existentes
-  NOVA_ROTA: "/nova-rota",
+  // ... existing routes
+  NEW_ROUTE: "/new-route",
 } as const;
 ```
 
-### **2. Adicionar no router:**
+### **2. Add to router:**
 ```tsx
-// src/router/index.tsx
+// src/router/router.tsx
 {
-  path: "nova-rota",
+  path: "new-route",
   element: (
     <PageWrapper>
-      <NovaPageComponent />
+      <NewPageComponent />
     </PageWrapper>
   ),
 }
 ```
 
-### **3. Adicionar atalho (opcional):**
+### **3. Add shortcut (optional):**
 ```tsx
 // src/hooks/useNavigation.ts
 return {
-  // ... métodos existentes
-  goToNovaRota: () => goTo("NOVA_ROTA"),
+  // ... existing methods
+  goToNewRoute: () => goTo("NEW_ROUTE"),
 };
 ```
 
@@ -177,43 +177,43 @@ return {
 
 ## 🚀 Performance
 
-### **Lazy Loading Implementado:**
+### **Lazy Loading Implemented:**
 - ✅ Dashboard
-- ✅ Pacientes  
-- ✅ Agendamentos
-- ✅ Médicos
-- ✅ Consultas
-- ✅ Cadastro
+- ✅ Patients  
+- ✅ Appointments
+- ✅ Doctors
+- ✅ Consultations
+- ✅ Register
 
 ### **Loading States:**
-- Spinner automático durante carregamento
-- Fallback customizado para cada página
-- Transições suaves
+- Automatic spinner during loading
+- Custom fallback for each page
+- Smooth transitions
 
 ---
 
-## 🧪 Testando Rotas
+## 🧪 Testing Routes
 
 ```bash
-# Testar se build funciona com lazy loading
+# Test if build works with lazy loading
 npm run build
 
-# Verificar se todas as rotas funcionam
+# Check if all routes work
 npm run dev
 ```
 
-**URLs para testar:**
-- `http://localhost:5173/` → Redireciona para dashboard
+**URLs to test:**
+- `http://localhost:5173/` → Redirects to dashboard
 - `http://localhost:5173/dashboard` → Dashboard
-- `http://localhost:5173/cadastro` → Cadastro (sem layout)
-- `http://localhost:5173/pacientes` → Pacientes
-- `http://localhost:5173/rota-inexistente` → Página 404
+- `http://localhost:5173/register` → Register (no layout)
+- `http://localhost:5173/patients` → Patients
+- `http://localhost:5173/non-existent-route` → 404 page
 
 ---
 
-## 💡 Dicas
+## 💡 Tips
 
-1. **Sempre use constantes** em vez de strings hardcoded
-2. **Use o hook customizado** para navegação programática
-3. **Teste lazy loading** em produção para garantir performance
-4. **Adicione novas rotas** seguindo o padrão estabelecido 
+1. **Always use constants** instead of hardcoded strings
+2. **Use the custom hook** for programmatic navigation
+3. **Test lazy loading** in production to ensure performance
+4. **Add new routes** following the established pattern 

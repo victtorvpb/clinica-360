@@ -1,89 +1,89 @@
 # 🚀 Deploy Guide - GitHub Actions + Vercel
 
-## Configuração Inicial
+## Initial Setup
 
-### 1. Tokens da Vercel
-1. Acesse [vercel.com/account/tokens](https://vercel.com/account/tokens)
-2. Clique em **"Create Token"**
-3. Nome: `GitHub Actions Deploy`
-4. Copie o token gerado
+### 1. Vercel Tokens
+1. Go to [vercel.com/account/tokens](https://vercel.com/account/tokens)
+2. Click **"Create Token"**
+3. Name: `GitHub Actions Deploy`
+4. Copy the generated token
 
-### 2. Criar Projeto na Vercel
-1. Acesse [vercel.com/new](https://vercel.com/new)
-2. Conecte com GitHub
-3. Selecione o repositório `clinica-360`
+### 2. Create Project on Vercel
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Connect with GitHub
+3. Select the `clinica-360` repository
 4. Configure:
    - **Framework Preset:** Vite
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
-5. Clique em **Deploy**
+5. Click **Deploy**
 
-### 3. Obter IDs do Projeto
-Após criar o projeto na Vercel:
-1. Vá em **Settings** do projeto
-2. Copie:
-   - **Project ID** (ex: `prj_xxxxxxxxxxxx`)
-   - **Team ID** ou **Personal Account ID** (será o ORG_ID)
+### 3. Get Project IDs
+After creating the project on Vercel:
+1. Go to project **Settings**
+2. Copy:
+   - **Project ID** (e.g., `prj_xxxxxxxxxxxx`)
+   - **Team ID** or **Personal Account ID** (this will be the ORG_ID)
 
-### 4. Configurar Secrets no GitHub
-1. Vá no repositório GitHub
+### 4. Configure GitHub Secrets
+1. Go to the GitHub repository
 2. **Settings** → **Secrets and variables** → **Actions**
-3. Adicione os secrets:
+3. Add the secrets:
 
 ```
-VERCEL_TOKEN = token_copiado_da_vercel
-ORG_ID = team_id_ou_personal_id
-PROJECT_ID = project_id_do_projeto
+VERCEL_TOKEN = token_copied_from_vercel
+ORG_ID = team_id_or_personal_id
+PROJECT_ID = project_id_from_project
 ```
 
-## Como Funciona
+## How It Works
 
-### ⚡ Deploy Automático
-- **Push na main** → Deploy de produção
-- **Pull Request** → Deploy de preview
-- **Build falha** → Notificação automática
+### ⚡ Automatic Deploy
+- **Push to main** → Production deploy
+- **Pull Request** → Preview deploy
+- **Build fails** → Automatic notification
 
 ### 🎯 Workflow
-1. GitHub detecta push/PR
-2. Instala dependências (`npm ci`)
-3. Executa build (`npm run build`)
-4. Deploy para Vercel
-5. URL gerada automaticamente
+1. GitHub detects push/PR
+2. Install dependencies (`npm ci`)
+3. Execute build (`npm run build`)
+4. Deploy to Vercel
+5. URL generated automatically
 
 ### 📍 URLs
-- **Produção:** `https://clinica-360.vercel.app`
+- **Production:** `https://clinica-360.vercel.app`
 - **Preview:** `https://clinica-360-git-branch.vercel.app`
 
-## Comandos Úteis
+## Useful Commands
 
 ```bash
-# Testar build localmente
+# Test build locally
 npm run build
 
-# Preview local do build
+# Local preview of build
 npm run preview
 
-# Deploy manual (se configurado Vercel CLI)
+# Manual deploy (if Vercel CLI configured)
 vercel --prod
 ```
 
 ## Troubleshooting
 
 ### Build Failed
-- Verifique erros de TypeScript
-- Confirme que todas as imagens existem
-- Teste `npm run build` localmente
+- Check TypeScript errors
+- Confirm all images exist
+- Test `npm run build` locally
 
 ### Deploy Failed
-- Verifique se todos os secrets estão configurados
-- Confirme que VERCEL_TOKEN está válido
-- Verifique se PROJECT_ID e ORG_ID estão corretos
+- Check if all secrets are configured
+- Confirm VERCEL_TOKEN is valid
+- Check if PROJECT_ID and ORG_ID are correct
 
-## Vantagens desta Abordagem
+## Advantages of This Approach
 
-✅ **Controle total** do processo de deploy
-✅ **Logs detalhados** no GitHub Actions
-✅ **Testes automáticos** antes do deploy
-✅ **Preview de PRs** automático
-✅ **Rollback fácil** via GitHub
-✅ **Notificações** de success/failure 
+✅ **Full control** of the deploy process
+✅ **Detailed logs** in GitHub Actions
+✅ **Automatic testing** before deploy
+✅ **Automatic PR preview**
+✅ **Easy rollback** via GitHub
+✅ **Success/failure notifications** 

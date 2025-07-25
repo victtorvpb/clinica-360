@@ -1,134 +1,134 @@
-# Clínica 360 - Sistema de Gestão
+# Clinic 360 - Management System
 
-Um sistema completo de gestão para clínicas médicas desenvolvido com React, TypeScript e Vite.
+A complete management system for medical clinics developed with React, TypeScript and Vite.
 
-## 🚀 Funcionalidades
+## 🚀 Features
 
-- **Dashboard**: Visão geral da clínica com estatísticas e ações rápidas
-- **Gestão de Pacientes**: Cadastro, busca e edição de pacientes
-- **Agendamentos**: Sistema completo de agendamento de consultas
-- **Equipe Médica**: Gerenciamento de médicos e especialidades
-- **Consultas**: Registro e histórico de consultas realizadas
-- **Interface Responsiva**: Funciona perfeitamente em desktop e mobile
+- **Dashboard**: Clinic overview with statistics and quick actions
+- **Patient Management**: Registration, search and editing of patients
+- **Appointments**: Complete consultation scheduling system
+- **Medical Team**: Management of doctors and specialties
+- **Consultations**: Registration and history of consultations performed
+- **Responsive Interface**: Works perfectly on desktop and mobile
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
-- **React 18**: Biblioteca para construção da interface
-- **TypeScript**: Tipagem estática para maior segurança
-- **Vite**: Build tool rápida e moderna
-- **Tailwind CSS**: Framework CSS para estilização
-- **React Router**: Navegação entre páginas
-- **Lucide React**: Ícones modernos e bonitos
-- **Date-fns**: Manipulação de datas
+- **React 18**: Library for building the interface
+- **TypeScript**: Static typing for greater security
+- **Vite**: Fast and modern build tool
+- **Tailwind CSS**: CSS framework for styling
+- **React Router**: Navigation between pages
+- **Lucide React**: Modern and beautiful icons
+- **Date-fns**: Date manipulation
 
-## 📦 Instalação
+## 📦 Installation
 
-1. Clone o repositório:
+1. Clone the repository:
 ```bash
-git clone <url-do-repositorio>
+git clone <repository-url>
 cd clinica-360
 ```
 
-2. Instale as dependências:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Execute o projeto em modo de desenvolvimento:
+3. Run the project in development mode:
 ```bash
 npm run dev
 ```
 
-4. Acesse no navegador:
+4. Access in browser:
 ```
 http://localhost:3000
 ```
 
-## 🏗️ Build para Produção
+## 🏗️ Production Build
 
-Para gerar a build de produção:
+To generate the production build:
 
 ```bash
 npm run build
 ```
 
-Para visualizar a build localmente:
+To preview the build locally:
 
 ```bash
 npm run preview
 ```
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 src/
-├── components/          # Componentes reutilizáveis
-│   └── Layout.tsx      # Layout principal com navegação
-├── pages/              # Páginas da aplicação
-│   ├── Dashboard.tsx   # Dashboard principal
-│   ├── Pacientes.tsx   # Gestão de pacientes
-│   ├── Agendamentos.tsx # Sistema de agendamentos
-│   ├── Medicos.tsx     # Gestão de médicos
-│   └── Consultas.tsx   # Registro de consultas
-├── types/              # Definições de tipos TypeScript
-│   └── index.ts        # Interfaces principais
-├── App.tsx             # Componente principal
-├── main.tsx            # Ponto de entrada
-└── index.css           # Estilos globais
+├── components/          # Reusable components
+│   └── Layout.tsx      # Main layout with navigation
+├── pages/              # Application pages
+│   ├── Dashboard.tsx   # Main dashboard
+│   ├── Pacientes.tsx   # Patient management
+│   ├── Agendamentos.tsx # Appointment system
+│   ├── Medicos.tsx     # Doctor management
+│   └── Consultas.tsx   # Consultation records
+├── types/              # TypeScript type definitions
+│   └── index.ts        # Main interfaces
+├── App.tsx             # Main component
+├── main.tsx            # Entry point
+└── index.css           # Global styles
 ```
 
 ## 🎨 Design System
 
-O projeto utiliza um design system consistente baseado em:
+The project uses a consistent design system based on:
 
-- **Cores primárias**: Azul (#3b82f6) para elementos principais
-- **Cores médicas**: Verde (#22c55e) para elementos relacionados à saúde
-- **Tipografia**: Sistema de fontes nativo do sistema
-- **Espaçamentos**: Grid baseado em múltiplos de 4px
-- **Componentes**: Cards, botões e formulários padronizados
+- **Primary colors**: Blue (#3b82f6) for main elements
+- **Medical colors**: Green (#22c55e) for health-related elements
+- **Typography**: Native system font stack
+- **Spacing**: Grid based on multiples of 4px
+- **Components**: Standardized cards, buttons and forms
 
-## 📱 Responsividade
+## 📱 Responsiveness
 
-A aplicação é totalmente responsiva e funciona bem em:
+The application is fully responsive and works well on:
 
-- **Desktop**: Layout com sidebar expandida
-- **Tablet**: Layout adaptado com navegação colapsível
-- **Mobile**: Menu hambúrguer e layouts otimizados
+- **Desktop**: Layout with expanded sidebar
+- **Tablet**: Adapted layout with collapsible navigation
+- **Mobile**: Hamburger menu and optimized layouts
 
-## 🔧 Scripts Disponíveis
+## 🔧 Available Scripts
 
-- `npm run dev`: Executa em modo de desenvolvimento
-- `npm run build`: Gera build de produção
-- `npm run preview`: Visualiza a build localmente
-- `npm run lint`: Executa o linter
+- `npm run dev`: Runs in development mode
+- `npm run build`: Generates production build
+- `npm run preview`: Previews the build locally
+- `npm run lint`: Runs the linter
 
-## 🚧 Próximas Funcionalidades
+## 🚧 Upcoming Features
 
-- [ ] Sistema de autenticação
-- [ ] Integração com API backend
-- [ ] Relatórios e gráficos
-- [ ] Sistema de notificações
-- [ ] Backup e exportação de dados
-- [ ] Integração com prontuário eletrônico
+- [ ] Authentication system
+- [ ] Backend API integration
+- [ ] Reports and charts
+- [ ] Notification system
+- [ ] Data backup and export
+- [ ] Electronic medical record integration
 
-## 🤝 Contribuição
+## 🤝 Contributing
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/new-functionality`)
+3. Commit your changes (`git commit -m 'Add new functionality'`)
+4. Push to the branch (`git push origin feature/new-functionality`)
+5. Open a Pull Request
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+This project is under the MIT license. See the `LICENSE` file for more details.
 
-## 📞 Suporte
+## 📞 Support
 
-Para suporte e dúvidas, entre em contato através de:
-- Email: suporte@clinica360.com
-- GitHub Issues: [Criar nova issue](https://github.com/usuario/clinica-360/issues)
+For support and questions, contact us through:
+- Email: support@clinic360.com
+- GitHub Issues: [Create new issue](https://github.com/user/clinica-360/issues)
 
 ---
 
-Desenvolvido com ❤️ para modernizar a gestão de clínicas médicas. 
+Developed with ❤️ to modernize medical clinic management. 

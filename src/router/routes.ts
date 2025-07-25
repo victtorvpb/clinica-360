@@ -1,22 +1,22 @@
-// Constantes de rotas para manter consistência
+// Route constants for consistency
 export const ROUTES = {
   HOME: "/",
   DASHBOARD: "/dashboard",
-  CADASTRO: "/cadastro",
-  PACIENTES: "/pacientes",
-  AGENDAMENTOS: "/agendamentos",
-  MEDICOS: "/medicos",
-  CONSULTAS: "/consultas",
+  REGISTER: "/register",
+  PATIENTS: "/patients",
+  APPOINTMENTS: "/appointments",
+  DOCTORS: "/doctors",
+  CONSULTATIONS: "/consultations",
 } as const;
 
-// Tipo para validação de rotas
+// Type for route validation
 export type RouteKey = keyof typeof ROUTES;
 export type RoutePath = typeof ROUTES[RouteKey];
 
-// Helper para navegação programática
+// Helper for programmatic navigation
 export const getRoute = (route: RouteKey): RoutePath => ROUTES[route];
 
-// Validar se uma rota existe
+// Validate if a route exists
 export const isValidRoute = (path: string): path is RoutePath => {
   return Object.values(ROUTES).includes(path as RoutePath);
 }; 

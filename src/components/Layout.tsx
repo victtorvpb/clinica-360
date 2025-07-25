@@ -17,10 +17,10 @@ export function Layout() {
 
   const menuItems = [
     { path: ROUTES.DASHBOARD, icon: Home, label: "Dashboard" },
-    { path: ROUTES.PACIENTES, icon: Users, label: "Pacientes" },
-    { path: ROUTES.AGENDAMENTOS, icon: Calendar, label: "Agendamentos" },
-    { path: ROUTES.MEDICOS, icon: Stethoscope, label: "Médicos" },
-    { path: ROUTES.CONSULTAS, icon: FileText, label: "Consultas" },
+    { path: ROUTES.PATIENTS, icon: Users, label: "Patients" },
+    { path: ROUTES.APPOINTMENTS, icon: Calendar, label: "Appointments" },
+    { path: ROUTES.DOCTORS, icon: Stethoscope, label: "Doctors" },
+    { path: ROUTES.CONSULTATIONS, icon: FileText, label: "Consultations" },
   ];
 
   return (

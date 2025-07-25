@@ -32,23 +32,23 @@ export class ErrorBoundary extends React.Component<
         <div className="flex flex-col items-center justify-center min-h-screen p-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-red-600 mb-4">
-              Oops! Algo deu errado
+              Oops! Something went wrong
             </h1>
             <p className="text-gray-600 mb-6">
-              Ocorreu um erro inesperado. Por favor, recarregue a página.
+              An unexpected error occurred. Please reload the page.
             </p>
             <div className="space-x-4">
               <button
                 onClick={() => window.location.reload()}
                 className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors"
               >
-                Recarregar Página
+                Reload Page
               </button>
               <a
                 href="/dashboard"
                 className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors inline-block"
               >
-                Voltar ao Dashboard
+                Back to Dashboard
               </a>
             </div>
           </div>

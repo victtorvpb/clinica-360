@@ -25,12 +25,12 @@ export const useNavigation = () => {
     goToPath,
     goBack,
     goForward,
-    // Atalhos para rotas mais usadas
+    // Shortcuts for most used routes
     goToDashboard: () => goTo("DASHBOARD"),
-    goToCadastro: () => goTo("CADASTRO"),
-    goToPacientes: () => goTo("PACIENTES"),
-    goToAgendamentos: () => goTo("AGENDAMENTOS"),
-    goToMedicos: () => goTo("MEDICOS"),
-    goToConsultas: () => goTo("CONSULTAS"),
+    goToRegister: () => goTo("REGISTER"),
+    goToPatients: () => goTo("PATIENTS"),
+    goToAppointments: () => goTo("APPOINTMENTS"),
+    goToDoctors: () => goTo("DOCTORS"),
+    goToConsultations: () => goTo("CONSULTATIONS"),
   };
 }; 
