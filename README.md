@@ -136,12 +136,5 @@ For detailed documentation, visit the **[docs/](./docs/)** folder:
 
 This project is under the MIT license. See the `LICENSE` file for more details.
 
-## 📞 Support
 
-For support and questions, contact us through:
-- Email: support@clinic360.com
-- GitHub Issues: [Create new issue](https://github.com/user/clinica-360/issues)
 
----
-
-Developed with ❤️ to modernize medical clinic management. 
