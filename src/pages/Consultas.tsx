@@ -3,7 +3,6 @@ import {
   FileText,
   Plus,
   Search,
-  Filter,
   Calendar,
   User,
   Stethoscope,

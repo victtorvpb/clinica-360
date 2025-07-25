@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Calendar, Clock, Plus, Filter, Search } from "lucide-react";
 import { Agendamento } from "../types";
-import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
 
 export function Agendamentos() {
   const [selectedDate, setSelectedDate] = useState(
