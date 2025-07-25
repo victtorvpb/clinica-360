@@ -16,6 +16,24 @@ export interface Paciente {
   convenio?: string;
 }
 
+export interface Patient {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  cpf: string;
+  birthDate: string;
+  address: {
+    street: string;
+    number: string;
+    neighborhood: string;
+    city: string;
+    zipCode: string;
+  };
+  medicalHistory?: string;
+  insurance?: string;
+}
+
 export interface Medico {
   id: string;
   nome: string;
@@ -23,6 +41,15 @@ export interface Medico {
   crm: string;
   email: string;
   telefone: string;
+}
+
+export interface Doctor {
+  id: string;
+  name: string;
+  specialty: string;
+  crm: string;
+  email: string;
+  phone: string;
 }
 
 export interface Agendamento {
@@ -36,6 +63,17 @@ export interface Agendamento {
   observacoes?: string;
 }
 
+export interface Appointment {
+  id: string;
+  patientId: string;
+  doctorId: string;
+  date: string;
+  time: string;
+  type: 'consultation' | 'return' | 'exam';
+  status: 'scheduled' | 'confirmed' | 'in-progress' | 'completed' | 'cancelled';
+  notes?: string;
+}
+
 export interface Consulta {
   id: string;
   agendamentoId: string;
@@ -47,4 +85,17 @@ export interface Consulta {
   prescricoes?: string[];
   examesSolicitados?: string[];
   observacoes?: string;
+}
+
+export interface Consultation {
+  id: string;
+  appointmentId: string;
+  patientId: string;
+  doctorId: string;
+  date: string;
+  symptoms: string;
+  diagnosis?: string;
+  prescriptions?: string[];
+  requestedExams?: string[];
+  notes?: string;
 } 
