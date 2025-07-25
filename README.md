@@ -70,10 +70,11 @@ src/
 │   └── Layout.tsx      # Main layout with navigation
 ├── pages/              # Application pages
 │   ├── Dashboard.tsx   # Main dashboard
-│   ├── Pacientes.tsx   # Patient management
-│   ├── Agendamentos.tsx # Appointment system
-│   ├── Medicos.tsx     # Doctor management
-│   └── Consultas.tsx   # Consultation records
+│   ├── Patients.tsx    # Patient management
+│   ├── Appointments.tsx # Appointment system
+│   ├── Doctors.tsx     # Doctor management
+│   ├── Consultations.tsx # Consultation records
+│   └── Register.tsx    # Registration form
 ├── types/              # TypeScript type definitions
 │   └── index.ts        # Main interfaces
 ├── App.tsx             # Main component
@@ -110,10 +111,9 @@ The application is fully responsive and works well on:
 
 For detailed documentation, visit the **[docs/](./docs/)** folder:
 
-- **[Setup Guide](./docs/SETUP-I18N.md)** - Quick setup for internationalization
 - **[Deploy Guide](./docs/DEPLOY.md)** - Deploy with GitHub Actions + Vercel  
 - **[Routing System](./docs/ROUTER.md)** - Advanced routing documentation
-- **[Internationalization](./docs/I18N.md)** - Complete i18n guide
+- **[Internationalization](./docs/INTERNATIONALIZATION.md)** - Complete i18n guide and setup
 
 ## 🚧 Upcoming Features
 

@@ -6,22 +6,24 @@ import { ROUTES } from "./routes";
 const Dashboard = lazy(() =>
   import("../pages/Dashboard").then((module) => ({ default: module.Dashboard }))
 );
-const Pacientes = lazy(() =>
-  import("../pages/Pacientes").then((module) => ({ default: module.Pacientes }))
+const Patients = lazy(() =>
+  import("../pages/Patients").then((module) => ({ default: module.Patients }))
 );
-const Agendamentos = lazy(() =>
-  import("../pages/Agendamentos").then((module) => ({
-    default: module.Agendamentos,
+const Appointments = lazy(() =>
+  import("../pages/Appointments").then((module) => ({
+    default: module.Appointments,
   }))
 );
-const Medicos = lazy(() =>
-  import("../pages/Medicos").then((module) => ({ default: module.Medicos }))
+const Doctors = lazy(() =>
+  import("../pages/Doctors").then((module) => ({ default: module.Doctors }))
 );
-const Consultas = lazy(() =>
-  import("../pages/Consultas").then((module) => ({ default: module.Consultas }))
+const Consultations = lazy(() =>
+  import("../pages/Consultations").then((module) => ({
+    default: module.Consultations,
+  }))
 );
-const Cadastro = lazy(() =>
-  import("../pages/Cadastro").then((module) => ({ default: module.Cadastro }))
+const Register = lazy(() =>
+  import("../pages/Register").then((module) => ({ default: module.Register }))
 );
 
 const PageLoader = () => (
@@ -42,7 +44,7 @@ export const router = createBrowserRouter([
     path: ROUTES.REGISTER,
     element: (
       <PageWrapper>
-        <Cadastro />
+        <Register />
       </PageWrapper>
     ),
   },
@@ -62,7 +64,7 @@ export const router = createBrowserRouter([
         path: "patients",
         element: (
           <PageWrapper>
-            <Pacientes />
+            <Patients />
           </PageWrapper>
         ),
       },
@@ -70,7 +72,7 @@ export const router = createBrowserRouter([
         path: "appointments",
         element: (
           <PageWrapper>
-            <Agendamentos />
+            <Appointments />
           </PageWrapper>
         ),
       },
@@ -78,7 +80,7 @@ export const router = createBrowserRouter([
         path: "doctors",
         element: (
           <PageWrapper>
-            <Medicos />
+            <Doctors />
           </PageWrapper>
         ),
       },
@@ -86,7 +88,7 @@ export const router = createBrowserRouter([
         path: "consultations",
         element: (
           <PageWrapper>
-            <Consultas />
+            <Consultations />
           </PageWrapper>
         ),
       },
