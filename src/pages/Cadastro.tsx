@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import mulherCadastro from "../assets/images/mulher-cadastro.jpg";
 
 export function Cadastro() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -276,24 +277,35 @@ export function Cadastro() {
   return (
     <div className="min-h-screen flex">
       {/* Lado esquerdo - Imagem e background */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
-        {/* Formas orgânicas decorativas */}
+      <div className="hidden lg:flex lg:w-1/2 bg-white relative overflow-hidden shadow-2xl">
+        {/* Formas geométricas decorativas */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 translate-x-1/2 translate-y-1/2"></div>
-          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-primary-300 rounded-full mix-blend-multiply filter blur-xl opacity-80"></div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500 rounded-full opacity-80 translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-20 right-10 w-60 h-60 bg-purple-400 rounded-full opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-purple-600 rounded-full opacity-60"></div>
         </div>
 
         {/* Imagem da mulher trabalhando */}
-        <div className="relative z-10 flex items-center justify-center w-full p-8">
-          <div className="text-center text-white">
-            <div className="w-80 h-80 bg-white/20 rounded-2xl backdrop-blur-sm flex items-center justify-center mb-8">
-              <div className="text-6xl">👩‍💻</div>
+        <div className="relative z-10 w-full h-full group cursor-pointer">
+          <img
+            src={mulherCadastro}
+            alt="Mulher trabalhando"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 shadow-2xl"
+          />
+
+          {/* Overlay escuro */}
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          {/* Overlay com texto */}
+          <div className="absolute bottom-32 left-8 right-8 transform translate-y-0 group-hover:-translate-y-4 transition-transform duration-500">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
+              <h2 className="text-2xl font-bold mb-2 text-gray-800">
+                Transforme sua clínica
+              </h2>
+              <p className="text-gray-600">
+                Gestão completa e moderna para profissionais da saúde
+              </p>
             </div>
-            <h2 className="text-2xl font-bold mb-4">Transforme sua clínica</h2>
-            <p className="text-lg opacity-90">
-              Gestão completa e moderna para profissionais da saúde
-            </p>
           </div>
         </div>
       </div>
