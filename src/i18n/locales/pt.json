@@ -1,0 +1,154 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "patients": "Pacientes",
+    "appointments": "Agendamentos",
+    "doctors": "Médicos",
+    "consultations": "Consultas",
+    "register": "Cadastro",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "add": "Adicionar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "loading": "Carregando...",
+    "noData": "Nenhum dado disponível",
+    "language": "Idioma"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Visão geral da clínica com estatísticas e ações rápidas",
+    "totalPatients": "Total de Pacientes",
+    "todayAppointments": "Consultas de Hoje",
+    "thisMonthRevenue": "Receita do Mês",
+    "activeStaff": "Equipe Ativa",
+    "recentAppointments": "Agendamentos Recentes",
+    "upcomingConsultations": "Próximas Consultas"
+  },
+  "patients": {
+    "title": "Gestão de Pacientes",
+    "subtitle": "Cadastro, busca e edição de pacientes",
+    "addPatient": "Adicionar Paciente",
+    "searchPlaceholder": "Buscar pacientes...",
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "cpf": "CPF",
+    "birthDate": "Data de Nascimento",
+    "address": "Endereço",
+    "insurance": "Convênio",
+    "medicalHistory": "Histórico Médico"
+  },
+  "appointments": {
+    "title": "Agendamentos",
+    "subtitle": "Sistema completo de agendamento de consultas",
+    "newAppointment": "Novo Agendamento",
+    "date": "Data",
+    "time": "Horário",
+    "patient": "Paciente",
+    "doctor": "Médico",
+    "type": "Tipo",
+    "status": "Status",
+    "notes": "Observações",
+    "scheduled": "Agendado",
+    "confirmed": "Confirmado",
+    "inProgress": "Em Andamento",
+    "completed": "Concluído",
+    "cancelled": "Cancelado"
+  },
+  "doctors": {
+    "title": "Equipe Médica",
+    "subtitle": "Gerenciamento de médicos e especialidades",
+    "addDoctor": "Adicionar Médico",
+    "specialty": "Especialidade",
+    "crm": "CRM",
+    "experience": "Experiência",
+    "availability": "Disponibilidade"
+  },
+  "consultations": {
+    "title": "Consultas",
+    "subtitle": "Registro e histórico de consultas realizadas",
+    "newConsultation": "Nova Consulta",
+    "symptoms": "Sintomas",
+    "diagnosis": "Diagnóstico",
+    "prescription": "Prescrição",
+    "exams": "Exames",
+    "followUp": "Acompanhamento"
+  },
+  "register": {
+    "title": "Crie sua conta e teste grátis por 3 dias! 🥰",
+    "subtitle": "Configure seu teste grátis em menos de 2 minutos",
+    "step1": {
+      "title": "Conte-nos sobre sua clínica",
+      "subtitle": "Vamos personalizar a experiência para sua clínica."
+    },
+    "step2": {
+      "title": "Finalize seu cadastro",
+      "subtitle": "Apenas mais alguns dados para começar."
+    },
+    "step3": {
+      "title": "Crie sua conta e teste grátis por 3 dias!",
+      "subtitle": "Configure seu teste grátis em menos de 2 minutos."
+    },
+    "clinicName": "Nome da sua clínica",
+    "clinicNamePlaceholder": "Nome fantasia",
+    "teamSize": "Quantas pessoas trabalham na sua clínica?",
+    "selectTeamSize": "Selecione",
+    "teamSizeOptions": {
+      "1": "Só eu",
+      "2-5": "De 2 a 5 pessoas",
+      "6-10": "De 6 a 10 pessoas",
+      "11-20": "De 11 a 20 pessoas",
+      "20+": "Mais de 20 pessoas"
+    },
+    "area": "Qual sua área de atuação?",
+    "selectArea": "Selecione",
+    "areaOptions": {
+      "aesthetics": "Estética",
+      "dermatology": "Dermatologia",
+      "general": "Clínica Geral",
+      "dentistry": "Odontologia",
+      "physiotherapy": "Fisioterapia",
+      "psychology": "Psicologia",
+      "other": "Outros"
+    },
+    "specialization": "Qual sua área de especialização dentro da Estética?",
+    "selectSpecialization": "Selecione",
+    "specializationOptions": {
+      "facial": "Estética Facial",
+      "body": "Estética Corporal",
+      "both": "Facial e Corporal",
+      "micropigmentation": "Micropigmentação",
+      "laser": "Laserterapia"
+    },
+    "name": "Seu nome",
+    "namePlaceholder": "Nome e sobrenome",
+    "phone": "Celular",
+    "phonePlaceholder": "(99) 9999-9999",
+    "email": "Seu e-mail",
+    "emailPlaceholder": "nome@dominio.com",
+    "password": "Defina uma senha",
+    "passwordPlaceholder": "Senha",
+    "passwordHelp": "A senha deve ter 8 caracteres ou mais",
+    "terms": "Li e aceito os termos, condições de uso e política de privacidade",
+    "createAccount": "Criar minha conta",
+    "continue": "Continuar",
+    "alreadyHaveAccount": "Já possui uma conta?",
+    "signIn": "Entre aqui",
+    "recoverPassword": "recupere sua senha",
+    "transformClinic": "Transforme sua clínica",
+    "completeModernManagement": "Gestão completa e moderna para profissionais da saúde"
+  },
+  "errors": {
+    "somethingWentWrong": "Oops! Algo deu errado",
+    "unexpectedError": "Ocorreu um erro inesperado. Por favor, recarregue a página.",
+    "reloadPage": "Recarregar Página",
+    "backToDashboard": "Voltar ao Dashboard",
+    "pageNotFound": "Página não encontrada"
+  }
+}

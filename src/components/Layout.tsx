@@ -9,18 +9,29 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ROUTES } from "../router/routes";
+import { LanguageSelector } from "./LanguageSelector";
 
 export function Layout() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const menuItems = [
-    { path: ROUTES.DASHBOARD, icon: Home, label: "Dashboard" },
-    { path: ROUTES.PATIENTS, icon: Users, label: "Patients" },
-    { path: ROUTES.APPOINTMENTS, icon: Calendar, label: "Appointments" },
-    { path: ROUTES.DOCTORS, icon: Stethoscope, label: "Doctors" },
-    { path: ROUTES.CONSULTATIONS, icon: FileText, label: "Consultations" },
+    { path: ROUTES.DASHBOARD, icon: Home, label: t("common.dashboard") },
+    { path: ROUTES.PATIENTS, icon: Users, label: t("common.patients") },
+    {
+      path: ROUTES.APPOINTMENTS,
+      icon: Calendar,
+      label: t("common.appointments"),
+    },
+    { path: ROUTES.DOCTORS, icon: Stethoscope, label: t("common.doctors") },
+    {
+      path: ROUTES.CONSULTATIONS,
+      icon: FileText,
+      label: t("common.consultations"),
+    },
   ];
 
   return (
@@ -31,8 +42,12 @@ export function Layout() {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <h1 className="text-xl font-bold text-primary-600">
-                  Clínica 360
+                  Clinic 360
                 </h1>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <LanguageSelector />
               </div>
             </div>
 

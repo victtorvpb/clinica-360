@@ -1,0 +1,154 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "appointments": "Appointments",
+    "doctors": "Doctors",
+    "consultations": "Consultations",
+    "register": "Register",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "add": "Add",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loading": "Loading...",
+    "noData": "No data available",
+    "language": "Language"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Clinic overview with statistics and quick actions",
+    "totalPatients": "Total Patients",
+    "todayAppointments": "Today's Appointments",
+    "thisMonthRevenue": "This Month Revenue",
+    "activeStaff": "Active Staff",
+    "recentAppointments": "Recent Appointments",
+    "upcomingConsultations": "Upcoming Consultations"
+  },
+  "patients": {
+    "title": "Patient Management",
+    "subtitle": "Registration, search and editing of patients",
+    "addPatient": "Add Patient",
+    "searchPlaceholder": "Search patients...",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "cpf": "CPF",
+    "birthDate": "Birth Date",
+    "address": "Address",
+    "insurance": "Insurance",
+    "medicalHistory": "Medical History"
+  },
+  "appointments": {
+    "title": "Appointments",
+    "subtitle": "Complete consultation scheduling system",
+    "newAppointment": "New Appointment",
+    "date": "Date",
+    "time": "Time",
+    "patient": "Patient",
+    "doctor": "Doctor",
+    "type": "Type",
+    "status": "Status",
+    "notes": "Notes",
+    "scheduled": "Scheduled",
+    "confirmed": "Confirmed",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "doctors": {
+    "title": "Medical Team",
+    "subtitle": "Management of doctors and specialties",
+    "addDoctor": "Add Doctor",
+    "specialty": "Specialty",
+    "crm": "CRM",
+    "experience": "Experience",
+    "availability": "Availability"
+  },
+  "consultations": {
+    "title": "Consultations",
+    "subtitle": "Registration and history of consultations performed",
+    "newConsultation": "New Consultation",
+    "symptoms": "Symptoms",
+    "diagnosis": "Diagnosis",
+    "prescription": "Prescription",
+    "exams": "Exams",
+    "followUp": "Follow-up"
+  },
+  "register": {
+    "title": "Create your account and test for free for 3 days! 🥰",
+    "subtitle": "Set up your free trial in less than 2 minutes",
+    "step1": {
+      "title": "Tell us about your clinic",
+      "subtitle": "Let's customize the experience for your clinic."
+    },
+    "step2": {
+      "title": "Complete your registration",
+      "subtitle": "Just a few more details to get started."
+    },
+    "step3": {
+      "title": "Create your account and test for free for 3 days!",
+      "subtitle": "Set up your free trial in less than 2 minutes."
+    },
+    "clinicName": "Your clinic name",
+    "clinicNamePlaceholder": "Trade name",
+    "teamSize": "How many people work at your clinic?",
+    "selectTeamSize": "Select",
+    "teamSizeOptions": {
+      "1": "Just me",
+      "2-5": "2 to 5 people",
+      "6-10": "6 to 10 people",
+      "11-20": "11 to 20 people",
+      "20+": "More than 20 people"
+    },
+    "area": "What is your area of expertise?",
+    "selectArea": "Select",
+    "areaOptions": {
+      "aesthetics": "Aesthetics",
+      "dermatology": "Dermatology",
+      "general": "General Practice",
+      "dentistry": "Dentistry",
+      "physiotherapy": "Physiotherapy",
+      "psychology": "Psychology",
+      "other": "Other"
+    },
+    "specialization": "What is your area of specialization within Aesthetics?",
+    "selectSpecialization": "Select",
+    "specializationOptions": {
+      "facial": "Facial Aesthetics",
+      "body": "Body Aesthetics",
+      "both": "Facial and Body",
+      "micropigmentation": "Micropigmentation",
+      "laser": "Laser Therapy"
+    },
+    "name": "Your name",
+    "namePlaceholder": "First and last name",
+    "phone": "Phone",
+    "phonePlaceholder": "(99) 9999-9999",
+    "email": "Your email",
+    "emailPlaceholder": "name@domain.com",
+    "password": "Set a password",
+    "passwordPlaceholder": "Password",
+    "passwordHelp": "Password must be 8 characters or more",
+    "terms": "I have read and accept the terms, conditions of use and privacy policy",
+    "createAccount": "Create my account",
+    "continue": "Continue",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in here",
+    "recoverPassword": "recover your password",
+    "transformClinic": "Transform your clinic",
+    "completeModernManagement": "Complete and modern management for healthcare professionals"
+  },
+  "errors": {
+    "somethingWentWrong": "Oops! Something went wrong",
+    "unexpectedError": "An unexpected error occurred. Please reload the page.",
+    "reloadPage": "Reload Page",
+    "backToDashboard": "Back to Dashboard",
+    "pageNotFound": "Page not found"
+  }
+}
