@@ -19,7 +19,6 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'pt', // Força português como idioma padrão
     fallbackLng: 'pt',
     debug: false,
     
@@ -28,8 +27,9 @@ i18n
     },
     
     detection: {
-      order: ['localStorage', 'htmlTag', 'navigator'],
+      order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
     },
   });
 
