@@ -3,43 +3,146 @@ import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "../router/routes";
-import { authService } from "../services/auth";
+import { fakeAuthService } from "../services/fakeAuth";
+import { useAlert } from "../hooks/useAlert";
+import { LanguageSelector } from "../components/LanguageSelector";
 
 export function Login() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { showSuccess, showError, showLoading, dismiss } = useAlert();
   const [showPassword, setShowPassword] = useState(false);
+  const [showCredentials, setShowCredentials] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Limpar erro quando o usuário começar a digitar
-    if (error) setError("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError("");
+    const loadingId = showLoading("Autenticando...");
 
     try {
-      await authService.login(formData);
+      const response = await fakeAuthService.login(formData);
+      dismiss(loadingId);
+      showSuccess(`Bem-vindo, ${response.user.name}!`);
       navigate(ROUTES.DASHBOARD);
     } catch (err) {
-      setError(t("login.invalidCredentials"));
+      dismiss(loadingId);
+      showError("Email ou senha incorretos. Tente novamente.");
     } finally {
       setIsLoading(false);
     }
   };
 
+  const availableUsers = fakeAuthService.getAvailableUsers();
+
   return (
     <div className="min-h-screen bg-white flex">
+      {/* Header com LanguageSelector */}
+      <div className="absolute top-4 right-4 z-10">
+        <LanguageSelector dropdownDirection="left" />
+      </div>
+
+      {/* Lado esquerdo - Texto promocional */}
+      <div className="hidden lg:flex lg:flex-1 bg-gradient-to-br from-primary-600 to-primary-800 p-12 items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 to-primary-800/90"></div>
+
+        <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full"></div>
+        <div className="absolute bottom-32 left-16 w-24 h-24 bg-white/10 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full"></div>
+
+        <div className="relative z-10 max-w-md text-center text-white">
+          <div className="mb-8">
+            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg
+                className="w-12 h-12 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-bold mb-4">
+              {t("login.accessClinic")}
+            </h3>
+            <p className="text-xl text-white/90 mb-6">
+              {t("login.manageDescription")}
+            </p>
+            <div className="space-y-4 text-left">
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span>{t("login.smartScheduling")}</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span>{t("login.digitalRecords")}</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span>{t("login.detailedReports")}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Lado direito - Formulário de login */}
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
@@ -64,12 +167,6 @@ export function Login() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-red-600 text-sm">{error}</p>
-              </div>
-            )}
-
             <div>
               <label
                 htmlFor="email"
@@ -174,95 +271,35 @@ export function Login() {
               </p>
             </div>
           </form>
-        </div>
-      </div>
 
-      <div className="hidden lg:flex lg:flex-1 bg-gradient-to-br from-primary-600 to-primary-800 p-12 items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 to-primary-800/90"></div>
+          {/* Seção de credenciais para desenvolvimento */}
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <button
+              type="button"
+              onClick={() => setShowCredentials(!showCredentials)}
+              className="text-sm text-primary-600 hover:text-primary-700"
+            >
+              {showCredentials ? "Ocultar" : "Mostrar"} credenciais de teste
+            </button>
 
-        <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full"></div>
-        <div className="absolute bottom-32 left-16 w-24 h-24 bg-white/10 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full"></div>
-
-        <div className="relative z-10 max-w-md text-center text-white">
-          <div className="mb-8">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg
-                className="w-12 h-12 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-3xl font-bold mb-4">
-              {t("login.accessClinic")}
-            </h3>
-            <p className="text-xl text-white/90 mb-6">
-              {t("login.manageDescription")}
-            </p>
-            <div className="space-y-4 text-left">
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+            {showCredentials && (
+              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                <h4 className="text-sm font-medium text-gray-900 mb-2">
+                  Usuários disponíveis para teste:
+                </h4>
+                <div className="space-y-2">
+                  {availableUsers.map((user, index) => (
+                    <div key={index} className="text-xs text-gray-600">
+                      <div className="font-medium">
+                        {user.name} ({user.role})
+                      </div>
+                      <div>Email: {user.email}</div>
+                      <div>Senha: {user.password}</div>
+                    </div>
+                  ))}
                 </div>
-                <span>{t("login.smartScheduling")}</span>
               </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <span>{t("login.digitalRecords")}</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <span>{t("login.detailedReports")}</span>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

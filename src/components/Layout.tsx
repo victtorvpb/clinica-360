@@ -15,24 +15,40 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "../router/routes";
-import { authService } from "../services/auth";
+import { fakeAuthService } from "../services/fakeAuth";
+import { useAlert } from "../hooks/useAlert";
 import { LanguageSelector } from "./LanguageSelector";
 
 export function Layout() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { showSuccess, showWarning } = useAlert();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { t } = useTranslation();
   const profileRef = useRef<HTMLDivElement>(null);
 
+  const user = fakeAuthService.getUser();
+
   const handleLogout = async () => {
     try {
-      await authService.logout();
+      await fakeAuthService.logout();
+      showSuccess("Logout realizado com sucesso!");
       navigate(ROUTES.LOGIN);
     } catch (error) {
-      console.error("Erro ao fazer logout:", error);
+      showWarning("Erro ao fazer logout, mas você foi desconectado.");
+      navigate(ROUTES.LOGIN);
     }
+  };
+
+  const getRoleDisplayName = (role: string) => {
+    const roleNames: Record<string, string> = {
+      admin: "Administrador",
+      medico: "Médico",
+      enfermeiro: "Enfermeiro",
+      recepcionista: "Recepcionista",
+    };
+    return roleNames[role] || role;
   };
 
   useEffect(() => {
@@ -108,7 +124,15 @@ export function Layout() {
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   className="flex items-center p-2 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors"
                 >
-                  <User className="w-6 h-6" />
+                  {user?.avatar ? (
+                    <img
+                      className="w-6 h-6 rounded-full mr-2"
+                      src={user.avatar}
+                      alt={user.name}
+                    />
+                  ) : (
+                    <User className="w-6 h-6" />
+                  )}
                   <ChevronDown className="w-4 h-4 ml-1" />
                 </button>
 
@@ -116,8 +140,15 @@ export function Layout() {
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50">
                     <div className="py-1">
                       <div className="px-4 py-2 text-sm text-gray-700 border-b">
-                        <div className="font-medium">{t("common.user")}</div>
-                        <div className="text-gray-500">admin@clinic360.com</div>
+                        <div className="font-medium">
+                          {user?.name || t("common.user")}
+                        </div>
+                        <div className="text-gray-500">
+                          {user?.email || "admin@clinic360.com"}
+                        </div>
+                        <div className="text-xs text-gray-400 mt-1">
+                          {getRoleDisplayName(user?.role)}
+                        </div>
                       </div>
 
                       <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
