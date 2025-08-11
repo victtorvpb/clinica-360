@@ -9,6 +9,8 @@ export const useLanguage = () => {
 
   const changeLanguage = (language: Language) => {
     i18n.changeLanguage(language);
+    // Garantir que a seleção seja salva no localStorage
+    localStorage.setItem('i18nextLng', language);
   };
 
   const getLanguageFlag = (language: Language) => {

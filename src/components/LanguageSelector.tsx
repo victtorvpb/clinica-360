@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { ChevronDown, Globe } from "lucide-react";
 import { useLanguage } from "../hooks/useLanguage";
 
-export const LanguageSelector: React.FC = () => {
+interface LanguageSelectorProps {
+  dropdownDirection?: 'left' | 'right';
+}
+
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ 
+  dropdownDirection = 'right' 
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     currentLanguage,
@@ -30,7 +36,9 @@ export const LanguageSelector: React.FC = () => {
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
+          <div className={`absolute mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20 ${
+            dropdownDirection === 'left' ? 'right-0' : 'left-0'
+          }`}>
             {availableLanguages.map((language) => (
               <button
                 key={language}

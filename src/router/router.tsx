@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
+import { ProtectedRoute } from "../components/ProtectedRoute";
 import { ROUTES } from "./routes";
 
 const Dashboard = lazy(() =>
@@ -25,6 +26,9 @@ const Consultations = lazy(() =>
 const Register = lazy(() =>
   import("../pages/Register").then((module) => ({ default: module.Register }))
 );
+const Login = lazy(() =>
+  import("../pages/Login").then((module) => ({ default: module.Login }))
+);
 
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
@@ -38,7 +42,15 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => (
 export const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
-    element: <Navigate to={ROUTES.DASHBOARD} replace />,
+    element: <Navigate to={ROUTES.LOGIN} replace />,
+  },
+  {
+    path: ROUTES.LOGIN,
+    element: (
+      <PageWrapper>
+        <Login />
+      </PageWrapper>
+    ),
   },
   {
     path: ROUTES.REGISTER,
@@ -50,7 +62,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "dashboard",

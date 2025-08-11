@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../router/routes";
 import mulherCadastro from "../assets/images/mulher-cadastro.jpg";
 
 export function Register() {
@@ -440,12 +442,12 @@ export function Register() {
             <div className="text-center">
               <p className="text-sm text-gray-600">
                 Já tem uma conta?{" "}
-                <a
-                  href="#"
+                <Link
+                  to={ROUTES.LOGIN}
                   className="text-primary-600 hover:text-primary-700 font-medium"
                 >
                   Fazer login
-                </a>
+                </Link>
               </p>
             </div>
           </form>
