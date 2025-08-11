@@ -1,4 +1,4 @@
-import { Link, useLocation, Outlet } from "react-router-dom";
+import { Link, useLocation, Outlet, useNavigate } from "react-router-dom";
 import {
   Home,
   Users,
@@ -15,14 +15,25 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "../router/routes";
+import { authService } from "../services/auth";
 import { LanguageSelector } from "./LanguageSelector";
 
 export function Layout() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { t } = useTranslation();
   const profileRef = useRef<HTMLDivElement>(null);
+
+  const handleLogout = async () => {
+    try {
+      await authService.logout();
+      navigate(ROUTES.LOGIN);
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+    }
+  };
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -120,7 +131,10 @@ export function Layout() {
                       </button>
 
                       <div className="border-t">
-                        <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center">
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center"
+                        >
                           <LogOut className="w-4 h-4 mr-3" />
                           {t("common.logout")}
                         </button>
