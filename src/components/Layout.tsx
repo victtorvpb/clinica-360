@@ -145,7 +145,7 @@ export function Layout() {
                           {user?.email || "admin@clinic360.com"}
                         </div>
                         <div className="text-xs text-gray-400 mt-1">
-                          {getRoleDisplayName(user?.type_user)}
+                          {getRoleDisplayName(user?.type_user || "")}
                         </div>
                       </div>
 
