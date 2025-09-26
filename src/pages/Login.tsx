@@ -6,6 +6,7 @@ import { ROUTES } from "../router/routes";
 import { fakeAuthService } from "../services/fakeAuth";
 import { useAlert } from "../hooks/useAlert";
 import { LanguageSelector } from "../components/LanguageSelector";
+import { ApiTest } from "../components/ApiTest";
 
 export function Login() {
   const navigate = useNavigate();
@@ -300,6 +301,11 @@ export function Login() {
                 </div>
               </div>
             )}
+
+            {/* Teste da API */}
+            <div className="mt-4">
+              <ApiTest />
+            </div>
           </div>
         </div>
       </div>
