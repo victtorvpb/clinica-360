@@ -11,6 +11,8 @@ export function ApiTest() {
   useEffect(() => {
     // Obter URL da API
     const url = apiService.getApiUrl();
+    console.log("🔍 API URL detectada:", url);
+    console.log("🔍 VITE_API_URL env:", import.meta.env.VITE_API_URL);
     setApiUrl(url);
 
     // Testar health check
