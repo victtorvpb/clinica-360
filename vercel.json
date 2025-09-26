@@ -1,8 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "env": {
-    "VITE_API_URL": "https://clinica-360-backend.onrender.com"
-  }
+  "framework": "vite"
 }

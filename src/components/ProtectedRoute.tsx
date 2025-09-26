@@ -1,24 +1,24 @@
-import { ReactNode, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 import { ROUTES } from "../router/routes";
-import { authService } from "../services/auth";
 
 interface ProtectedRouteProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const navigate = useNavigate();
+  const { isAuthenticated, isLoading } = useAuth();
 
-  useEffect(() => {
-    if (!authService.isAuthenticated()) {
-      navigate(ROUTES.LOGIN);
-    }
-  }, [navigate]);
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
+      </div>
+    );
+  }
 
-  // Se não estiver autenticado, não renderiza nada (será redirecionado)
-  if (!authService.isAuthenticated()) {
-    return null;
+  if (!isAuthenticated) {
+    return <Navigate to={ROUTES.LOGIN} replace />;
   }
 
   return <>{children}</>;

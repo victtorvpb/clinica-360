@@ -3,15 +3,15 @@ import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "../router/routes";
-import { fakeAuthService } from "../services/fakeAuth";
+import { useAuth } from "../hooks/useAuth";
 import { useAlert } from "../hooks/useAlert";
 import { LanguageSelector } from "../components/LanguageSelector";
-import { ApiTest } from "../components/ApiTest";
 
 export function Login() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { showSuccess, showError, showLoading, dismiss } = useAlert();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [showCredentials, setShowCredentials] = useState(false);
   const [formData, setFormData] = useState({
@@ -31,19 +31,49 @@ export function Login() {
     const loadingId = showLoading("Autenticando...");
 
     try {
-      const response = await fakeAuthService.login(formData);
+      const response = await login(formData.email, formData.password);
       dismiss(loadingId);
       showSuccess(`Bem-vindo, ${response.user.name}!`);
       navigate(ROUTES.DASHBOARD);
     } catch (err) {
       dismiss(loadingId);
-      showError("Email ou senha incorretos. Tente novamente.");
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Email ou senha incorretos. Tente novamente.";
+      showError(errorMessage);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const availableUsers = fakeAuthService.getAvailableUsers();
+  // Usuários disponíveis para teste (backend real)
+  const availableUsers = [
+    {
+      email: "admin@clinica360.com",
+      password: "admin123",
+      name: "Administrador",
+      role: "admin",
+    },
+    {
+      email: "medico@clinica360.com",
+      password: "medico123",
+      name: "Dr. João Silva",
+      role: "medico",
+    },
+    {
+      email: "enfermeiro@clinica360.com",
+      password: "enfermeiro123",
+      name: "Maria Santos",
+      role: "enfermeiro",
+    },
+    {
+      email: "recepcionista@clinica360.com",
+      password: "recepcionista123",
+      name: "Ana Costa",
+      role: "recepcionista",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white flex">
@@ -301,11 +331,6 @@ export function Login() {
                 </div>
               </div>
             )}
-
-            {/* Teste da API */}
-            <div className="mt-4">
-              <ApiTest />
-            </div>
           </div>
         </div>
       </div>

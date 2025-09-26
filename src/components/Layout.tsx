@@ -15,7 +15,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "../router/routes";
-import { fakeAuthService } from "../services/fakeAuth";
+import { useAuth } from "../hooks/useAuth";
 import { useAlert } from "../hooks/useAlert";
 import { LanguageSelector } from "./LanguageSelector";
 
@@ -23,16 +23,15 @@ export function Layout() {
   const location = useLocation();
   const navigate = useNavigate();
   const { showSuccess, showWarning } = useAlert();
+  const { user, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { t } = useTranslation();
   const profileRef = useRef<HTMLDivElement>(null);
 
-  const user = fakeAuthService.getUser();
-
   const handleLogout = async () => {
     try {
-      await fakeAuthService.logout();
+      await logout();
       showSuccess("Logout realizado com sucesso!");
       navigate(ROUTES.LOGIN);
     } catch (error) {
@@ -41,14 +40,13 @@ export function Layout() {
     }
   };
 
-  const getRoleDisplayName = (role: string) => {
+  const getRoleDisplayName = (typeUser: string) => {
     const roleNames: Record<string, string> = {
       admin: "Administrador",
-      medico: "Médico",
-      enfermeiro: "Enfermeiro",
-      recepcionista: "Recepcionista",
+      medical: "Médico",
+      secretary: "Recepcionista",
     };
-    return roleNames[role] || role;
+    return roleNames[typeUser] || typeUser;
   };
 
   useEffect(() => {
@@ -147,7 +145,7 @@ export function Layout() {
                           {user?.email || "admin@clinic360.com"}
                         </div>
                         <div className="text-xs text-gray-400 mt-1">
-                          {getRoleDisplayName(user?.role)}
+                          {getRoleDisplayName(user?.type_user || "")}
                         </div>
                       </div>
 
